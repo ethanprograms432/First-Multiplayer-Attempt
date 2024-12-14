@@ -1,0 +1,39 @@
+* {
+
+    background-color: black;
+}
+
+.username-section {
+
+    text-align: center;
+    color: white;
+    margin: 100px;
+    margin-left: 1000px;
+    margin-right: 1000px;
+    display: block;
+
+}
+#users div {
+
+    width: 200px;
+    height: 200px;
+    border: 1px solid red;
+    background-color: red;
+    position: absolute;
+
+}
+
+#username {
+
+    color: white;
+}
+
+#speed {
+
+    color: white;
+}
+
+#submit-button {
+
+    color: green;
+}
