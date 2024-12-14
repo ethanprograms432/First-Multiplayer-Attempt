@@ -1,0 +1,19 @@
+{
+  "name": "firstmultiplayerthing",
+  "version": "1.0.0",
+  "description": "\"Deploying my first multiplayer web service\"",
+  "main": "express.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethanprograms432/First-Multiplayer-Thing.git"
+  },
+  "author": "Ethan James",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ethanprograms432/First-Multiplayer-Thing/issues"
+  },
+  "homepage": "https://github.com/ethanprograms432/First-Multiplayer-Thing#readme"
+}
