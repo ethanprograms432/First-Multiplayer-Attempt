@@ -56,7 +56,7 @@ async function updatePlayer(playerName,newXPos,newYPos) {
 
     try {
 
-        const response = await fetch(`http:/localhost:3000/players/${playerName}`,{
+        const response = await fetch(`./players/${playerName}`,{
 
             method: 'PUT',
             headers: {
@@ -90,7 +90,7 @@ document.getElementById('username-form').addEventListener('submit', async functi
     const data = Object.fromEntries(formData.entries());
   
     try {
-      const response = await fetch('http://localhost:3000/players/', {
+      const response = await fetch('./players/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -133,7 +133,7 @@ async function generatePlayers()
 
     try {
 
-        const response = await fetch('http://localhost:3000/players/')
+        const response = await fetch('./players/')
 
         if(response.ok) {
 
