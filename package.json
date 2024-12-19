@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/ethanprograms432/First-Multiplayer-Thing/issues"
   },
-  "homepage": "https://github.com/ethanprograms432/First-Multiplayer-Thing#readme"
+  "homepage": "https://github.com/ethanprograms432/First-Multiplayer-Thing#readme",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "path": "^0.12.7",
+    "pg": "^8.13.1"
+  }
 }
