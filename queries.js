@@ -98,11 +98,30 @@ const getNumUsers = (request,response) => {
 
 }
 
+const deleteUser = (request,response) => {
+
+    const username = request.params.username
+
+    pool.query('DELETE FROM User_Coordinates WHERE username = $1',[username],
+        (error,results) => {
+
+            if(error) {
+
+                throw(error)
+            }
+            response.status(204).send('User deleted with username ' + username)
+
+        }
+    )
+
+}
+
 module.exports = {
 
     updateUser,
     addUser,
     getUserByUsername,
     getUsers,
-    getNumUsers
+    getNumUsers,
+    deleteUser
 }

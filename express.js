@@ -8,13 +8,6 @@ const db = require('./queries.js')
 
 const PORT = process.env.PORT || 3000;
 
-/*
-app.get('/',(req,res) => {
-
-    res.sendFile(path.join(__dirname,'index.html'))
-
-})
-*/
 
 app.use(express.static(path.join(__dirname,'public')))
 
@@ -36,6 +29,8 @@ app.get('/numUsers/',db.getNumUsers)
 app.post('/players/',db.addUser)
 
 app.put('/players/:username',db.updateUser)
+
+app.delete('/players/:username',db.deleteUser)
 
 app.listen(PORT,() => {
 
