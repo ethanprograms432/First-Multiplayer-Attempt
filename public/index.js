@@ -197,16 +197,22 @@ async function generatePlayers()
     
         } else {
     
-            if(result.length === actualPlayers.length) {
-            
-                for (let i = 0; i < actualPlayers.length; i++) {
-        
-                    actualPlayers[i].style.top = `${result[i]["ypos"]}px`
-                    actualPlayers[i].style.left = `${result[i]["xpos"]}px`
-        
-                }
 
-            } else if(result.length > actualPlayers.length) {
+            for (let i = 0; i < result.length; i++) {
+        
+                const name = result[i]["username"]
+                const indexOfName = onlineUsers.indexOf(name)
+
+                if(indexOfName !== -1) {
+
+                    actualPlayers[indexOfName].style.top = `${result[i]["ypos"]}px`
+                    actualPlayers[indexOfName].style.left = `${result[i]["xpos"]}px`
+
+                }
+    
+            }
+
+            if(result.length > actualPlayers.length) {
 
                 for (let i = actualPlayers.length; i < result.length; i++) {
 
@@ -220,14 +226,16 @@ async function generatePlayers()
 
             } else if(result.length < actualPlayers.length) {
 
-                for (let i = 0; i < result.length; i++) {
+                for (let i = 0; i < onlineUsers.length; i++) {
 
-                    const name = result[i]["username"]
+                    const name = onlineUsers[i]
+                    const isInGame = checkIfIsInGame(result,name)
 
-                    if(!onlineUsers.includes(name)) {
+                    if(isInGame === false) {
 
                         console.log('Attempting to remove ' + name)
-                        removePlayer(name)
+                        actualPlayers[i].style.display = 'none';
+                        
                     }
                 }
 
@@ -244,15 +252,21 @@ async function generatePlayers()
 
 }
 
-function removePlayer(username) {
+function checkIfIsInGame(result,username) {
 
-    console.log('Removing!')
-    const index = onlineUsers.indexOf(username)
+    for (let i = 0; i < result.length; i++) {
 
-    userSection.children[index].style.display = 'none'
+        if(result[i]["username"] === username) {
+
+
+            return true;
+        }
+
+    }
+
+    return false;
 
 }
-
 
 
 document.addEventListener('keydown', (event) => {
