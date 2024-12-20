@@ -212,35 +212,32 @@ async function generatePlayers()
     
             }
 
-            if(result.length > actualPlayers.length) {
+            for (let i = 0; i < result.length; i++) {
 
-                for (let i = actualPlayers.length; i < result.length; i++) {
+                const name = result[i]["username"]
+                const x = result[i]["xpos"]
+                const y = result[i]["ypos"]
 
-                    const name = result[i]["username"]
-                    const x = result[i]["xpos"]
-                    const y = result[i]["ypos"]
-    
+                if(!onlineUsers.includes(name)) {
+
                     generateNewPlayer(false,x,y,name)
-
-                }
-
-            } else if(result.length < actualPlayers.length) {
-
-                for (let i = 0; i < onlineUsers.length; i++) {
-
-                    const name = onlineUsers[i]
-                    const isInGame = checkIfIsInGame(result,name)
-
-                    if(isInGame === false) {
-
-                        console.log('Attempting to remove ' + name)
-                        actualPlayers[i].style.display = 'none';
-                        
-                    }
                 }
 
             }
-    
+
+            for (let i = 0; i < onlineUsers.length; i++) {
+
+                const name = onlineUsers[i]
+                const isInGame = checkIfIsInGame(result,name)
+
+                if(isInGame === false) {
+
+                    console.log('Attempting to remove ' + name)
+                    actualPlayers[i].style.display = 'none';
+                        
+                }
+            }
+
         }
 
     } catch(error) {
