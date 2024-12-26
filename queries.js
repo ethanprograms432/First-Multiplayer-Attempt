@@ -1,7 +1,7 @@
 const Pool = require('pg').Pool;
 const pool = new Pool({
 
-    connectionString: 'postgresql://programmer:qhzbge0exQokwBlUP2yvpFfEJkkTlcNU@dpg-ct160fm8ii6s73fd37bg-a.oregon-postgres.render.com/user_coordinates_database',
+    connectionString: 'postgresql://programmer:91zBAq9yStMfCYnxkmC3E9BQKQ6gJ784@dpg-ctmtjrrv2p9s73fev0ng-a.oregon-postgres.render.com/user_coordinates_database_9c9z',
     ssl: {
         rejectUnauthorized: false
     }
